@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:wedding_invitation/constant.dart';
+import 'package:wedding_invitation/save_the_date_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Thiệp cưới Nhật và Oanh',
       theme: ThemeData(
-        fontFamily: 'DancingScript',
+        fontFamily: 'YanoneKaffeesatz',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xff619086),
+        ),
       ),
       home: const MyHomePage(
         title: 'Flutter Demo Home Page',
@@ -36,22 +43,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Expanded(
-              child: Image(
-                image: AssetImage(
-                  'assets/img/portrait.jpg',
+      body: Swiper(
+        itemBuilder: (BuildContext context, int index) {
+          switch (index) {
+            case 0:
+              {
+                return const SaveTheDatePage(
+                  landscapeImagePath: landscapeImagePath,
+                  portraitImagePath: portraitImagePath,
+                );
+              }
+            default:
+              return Center(
+                child: Text(
+                  index.toString(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 100,
+                  ),
                 ),
-              ),
-            ),
-          ],
+              );
+          }
+        },
+        itemCount: 10,
+        pagination: SwiperPagination(
+          builder: DotSwiperPaginationBuilder(
+            activeColor: Theme.of(context).colorScheme.primary,
+          ),
         ),
+        scrollDirection: Axis.vertical,
+        loop: false,
       ),
     );
   }
