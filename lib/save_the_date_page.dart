@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class SaveTheDatePage extends StatelessWidget {
@@ -72,20 +71,19 @@ class LandingText extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width,
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.3,
-          child: const Center(
-            child: AutoSizeText(
+        const Expanded(
+          flex: 3,
+          child: Center(
+            child: Text(
               'Hoàng Nhật & Lan Oanh',
               style: TextStyle(
                 fontFamily: 'DancingScript',
                 fontWeight: FontWeight.bold,
-                fontSize: 80,
+                fontSize: 60,
                 color: Colors.white,
               ),
-              maxLines: 1,
+              maxLines: 2,
+              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -95,7 +93,7 @@ class LandingText extends StatelessWidget {
         ),
         const Expanded(
           flex: 0,
-          child: AutoSizeText(
+          child: Text(
             'We Are Tying The Knot',
             style: TextStyle(
               fontSize: 30,
