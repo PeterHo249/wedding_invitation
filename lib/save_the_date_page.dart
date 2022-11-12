@@ -68,8 +68,9 @@ class LandingText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.3,
+          width: MediaQuery.of(context).size.width,
         ),
         const Expanded(
           child: Padding(
