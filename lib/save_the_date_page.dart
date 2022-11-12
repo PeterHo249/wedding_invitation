@@ -72,17 +72,17 @@ class LandingText extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width,
         ),
-        const Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 20.0,
-            ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.3,
+          child: const Center(
             child: AutoSizeText(
               'Hoàng Nhật & Lan Oanh',
               style: TextStyle(
                 fontFamily: 'DancingScript',
-                fontSize: 80,
                 fontWeight: FontWeight.bold,
+                fontSize: 80,
                 color: Colors.white,
               ),
               maxLines: 1,
