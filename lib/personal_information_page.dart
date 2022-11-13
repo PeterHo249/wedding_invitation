@@ -27,7 +27,7 @@ class PersonalInformationPage extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary.withOpacity(0.03),
         border: Border.all(
-          width: 20.0,
+          width: getScale(context, 20),
           color: Colors.white,
         ),
       ),
@@ -38,7 +38,11 @@ class PersonalInformationPage extends StatelessWidget {
   }
 
   Widget buildVerticalScreen(BuildContext context) {
-    return Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: buildInformationWidgets(context),
+    );
   }
 
   Widget buildHorizontalScreen(BuildContext context) {
@@ -46,33 +50,43 @@ class PersonalInformationPage extends StatelessWidget {
       mainAxisAlignment:
           isReversedOrder ? MainAxisAlignment.end : MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: buildInformationRow(context),
+      children: buildInformationWidgets(context),
     );
   }
 
-  List<Widget> buildInformationRow(BuildContext context) {
+  List<Widget> buildInformationWidgets(BuildContext context) {
+    bool isVertical = isVerticalScreen(context);
+
+    CrossAxisAlignment crossAlignment;
+    if (isVertical) {
+      crossAlignment = CrossAxisAlignment.center;
+    } else {
+      if (isReversedOrder) {
+        crossAlignment = CrossAxisAlignment.end;
+      } else {
+        crossAlignment = CrossAxisAlignment.start;
+      }
+    }
+
     var widgets = [
-      SizedBox(
-        width: MediaQuery.of(context).size.height - 40.0,
-        child: Image.asset(
-          horizontalImage,
-          fit: BoxFit.fill,
-        ),
+      Image.asset(
+        isVertical ? verticalImage : horizontalImage,
+        fit: isVertical ? BoxFit.fitWidth : BoxFit.fitHeight,
       ),
-      SizedBox(
-        width: MediaQuery.of(context).size.width * 0.5 - 20.0,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: isReversedOrder
-                ? CrossAxisAlignment.end
-                : CrossAxisAlignment.start,
-            children: buildInformationText(context),
-          ),
+      Padding(
+        padding: EdgeInsets.all(getScale(context, 30)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: crossAlignment,
+          children: buildInformationText(context),
         ),
       ),
     ];
+
+    if (isVertical) {
+      widgets.add(Container());
+    }
 
     if (isReversedOrder) {
       widgets = widgets.reversed.toList();
@@ -84,34 +98,36 @@ class PersonalInformationPage extends StatelessWidget {
   List<Widget> buildInformationText(BuildContext context) {
     return [
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: getScale(context, 10)),
         child: Text(
           patronName,
           style: TextStyle(
             fontFamily: 'DancingScript',
-            fontSize: 50,
+            fontSize: getScale(context, 50),
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: getScale(context, 10)),
         child: Text(
           fullname,
           style: TextStyle(
             fontFamily: 'DancingScript',
-            fontSize: 60,
+            fontSize: getScale(context, 60),
             fontWeight: FontWeight.bold,
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        padding: EdgeInsets.symmetric(vertical: getScale(context, 20)),
         child: Text(
           familyOrder,
           style: TextStyle(
-              fontSize: 20, color: Theme.of(context).colorScheme.secondary),
+            fontSize: getScale(context, 20),
+            color: Theme.of(context).colorScheme.secondary,
+          ),
         ),
       ),
     ];

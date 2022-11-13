@@ -65,7 +65,7 @@ class LandingText extends StatelessWidget {
   }
 
   List<Widget> buildTextColumn(BuildContext context) {
-    double primaryFontSize = 60;
+    double primaryFontSize = getScale(context, 60);
     double secondaryFontSize = primaryFontSize * 0.5;
 
     var widgets = [
@@ -88,9 +88,9 @@ class LandingText extends StatelessWidget {
           ),
         ),
       ),
-      const LandingDivider(
-        paddingTop: 40.0,
-        paddingBottom: 10.0,
+      LandingDivider(
+        paddingTop: getScale(context, 40),
+        paddingBottom: getScale(context, 10),
       ),
       Expanded(
         flex: 0,
@@ -103,9 +103,9 @@ class LandingText extends StatelessWidget {
           maxLines: 1,
         ),
       ),
-      const LandingDivider(
-        paddingTop: 10.0,
-        paddingBottom: 30.0,
+      LandingDivider(
+        paddingTop: getScale(context, 10),
+        paddingBottom: getScale(context, 30),
       ),
       Expanded(
         flex: 0,
