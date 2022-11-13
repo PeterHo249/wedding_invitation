@@ -65,7 +65,7 @@ class LandingText extends StatelessWidget {
   }
 
   List<Widget> buildTextColumn(BuildContext context) {
-    double primaryFontSize = isLongLandscapeScreen(context) ? 60 : 50;
+    double primaryFontSize = isLongHorizotalScreen(context) ? 60 : 50;
     double secondaryFontSize = primaryFontSize * 0.5;
 
     var widgets = [
@@ -77,7 +77,9 @@ class LandingText extends StatelessWidget {
         flex: 3,
         child: Center(
           child: Text(
-            'Hoàng Nhật & Lan Oanh',
+            isVerticalScreen(context)
+                ? 'Hoàng Nhật\n& Lan Oanh'
+                : 'Hoàng Nhật & Lan Oanh',
             style: TextStyle(
               fontFamily: 'DancingScript',
               fontWeight: FontWeight.bold,
@@ -135,7 +137,7 @@ class LandingText extends StatelessWidget {
       ),
     ];
 
-    if (isLongLandscapeScreen(context)) {
+    if (isLongHorizotalScreen(context)) {
       widgets.removeAt(0);
     }
 

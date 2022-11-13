@@ -7,9 +7,9 @@ bool isVerticalScreen(BuildContext context) {
   return screenWidth / screenHeight <= 0.8;
 }
 
-bool isLongLandscapeScreen(BuildContext context) {
+bool isLongHorizotalScreen(BuildContext context) {
   double screenHeight = MediaQuery.of(context).size.height;
   double screenWidth = MediaQuery.of(context).size.width;
 
-  return screenWidth >= screenHeight * 2;
+  return screenWidth >= screenHeight * 1.8;
 }
