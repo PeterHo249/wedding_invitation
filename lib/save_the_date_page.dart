@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_invitation/utils.dart';
 
+import 'overlay_image.dart';
+
 class SaveTheDatePage extends StatelessWidget {
   final String portraitImagePath;
   final String landscapeImagePath;
@@ -16,35 +18,12 @@ class SaveTheDatePage extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        LandingImage(
+        OverlayImage(
           portraitImagePath: portraitImagePath,
           landscapeImagePath: landscapeImagePath,
         ),
         const LandingText(),
       ],
-    );
-  }
-}
-
-class LandingImage extends StatelessWidget {
-  const LandingImage({
-    Key? key,
-    required this.portraitImagePath,
-    required this.landscapeImagePath,
-  }) : super(key: key);
-
-  final String portraitImagePath;
-  final String landscapeImagePath;
-
-  @override
-  Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage(
-        isVerticalScreen(context) ? portraitImagePath : landscapeImagePath,
-      ),
-      fit: BoxFit.fill,
-      color: Colors.grey.withOpacity(0.95),
-      colorBlendMode: BlendMode.modulate,
     );
   }
 }
@@ -87,24 +66,37 @@ class LandingText extends StatelessWidget {
           ),
         ),
       ),
-      LandingDivider(
-        paddingTop: getScale(context, 40),
-        paddingBottom: getScale(context, 10),
-      ),
       Expanded(
         flex: 0,
-        child: Text(
-          'We Are Tying The Knot',
-          style: TextStyle(
-            fontSize: secondaryFontSize,
-            color: Colors.white,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: getScale(context, 80.0),
           ),
-          maxLines: 1,
+          child: Container(
+            decoration: const BoxDecoration(
+              border: Border.symmetric(
+                horizontal: BorderSide(
+                  color: Colors.white,
+                  width: 2,
+                ),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: getScale(context, 20.0),
+                horizontal: getScale(context, 100.0),
+              ),
+              child: Text(
+                'We Are Tying The Knot',
+                style: TextStyle(
+                  fontSize: secondaryFontSize,
+                  color: Colors.white,
+                ),
+                maxLines: 1,
+              ),
+            ),
+          ),
         ),
-      ),
-      LandingDivider(
-        paddingTop: getScale(context, 10),
-        paddingBottom: getScale(context, 30),
       ),
       Expanded(
         flex: 0,
@@ -134,33 +126,5 @@ class LandingText extends StatelessWidget {
     ];
 
     return widgets;
-  }
-}
-
-class LandingDivider extends StatelessWidget {
-  const LandingDivider({
-    Key? key,
-    required this.paddingTop,
-    required this.paddingBottom,
-  }) : super(key: key);
-
-  final double paddingTop;
-  final double paddingBottom;
-
-  @override
-  Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-        screenWidth * 0.3,
-        paddingTop,
-        screenWidth * 0.3,
-        paddingBottom,
-      ),
-      child: const Divider(
-        color: Colors.white,
-      ),
-    );
   }
 }

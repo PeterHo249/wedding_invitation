@@ -25,7 +25,7 @@ class PersonalInformationPage extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary.withOpacity(0.03),
+        color: Theme.of(context).colorScheme.primary.withOpacity(0.05),
         border: Border.all(
           width: getScale(context, 20),
           color: Colors.white,

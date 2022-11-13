@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:wedding_invitation/ceremony_page.dart';
 import 'package:wedding_invitation/constant.dart';
+import 'package:wedding_invitation/ending_page.dart';
 import 'package:wedding_invitation/personal_information_page.dart';
 import 'package:wedding_invitation/save_the_date_page.dart';
 
@@ -76,6 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   horizontalImage: portraitImagePath,
                 );
               }
+            case 3:
+              {
+                return const CeremonyPage();
+              }
+            case 4:
+              {
+                return const EndingPage();
+              }
             default:
               return Center(
                 child: Text(
@@ -88,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               );
           }
         },
-        itemCount: 10,
+        itemCount: 5,
         pagination: SwiperPagination(
           builder: DotSwiperPaginationBuilder(
             activeColor: Theme.of(context).colorScheme.primary,
