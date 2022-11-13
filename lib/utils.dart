@@ -11,5 +11,5 @@ bool isLongHorizotalScreen(BuildContext context) {
   double screenHeight = MediaQuery.of(context).size.height;
   double screenWidth = MediaQuery.of(context).size.width;
 
-  return screenWidth >= screenHeight * 1.8;
+  return screenWidth >= screenHeight * 2;
 }

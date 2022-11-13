@@ -65,17 +65,14 @@ class LandingText extends StatelessWidget {
   }
 
   List<Widget> buildTextColumn(BuildContext context) {
-    double primaryFontSize = isLongHorizotalScreen(context) ? 60 : 50;
+    double primaryFontSize = 60;
     double secondaryFontSize = primaryFontSize * 0.5;
 
     var widgets = [
-      SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
-        width: MediaQuery.of(context).size.width,
-      ),
       Expanded(
         flex: 3,
-        child: Center(
+        child: Align(
+          alignment: FractionalOffset.bottomCenter,
           child: Text(
             isVerticalScreen(context)
                 ? 'Hoàng Nhật\n& Lan Oanh'
@@ -92,7 +89,7 @@ class LandingText extends StatelessWidget {
         ),
       ),
       const LandingDivider(
-        paddingTop: 30.0,
+        paddingTop: 40.0,
         paddingBottom: 10.0,
       ),
       Expanded(
@@ -136,10 +133,6 @@ class LandingText extends StatelessWidget {
         ),
       ),
     ];
-
-    if (isLongHorizotalScreen(context)) {
-      widgets.removeAt(0);
-    }
 
     return widgets;
   }
