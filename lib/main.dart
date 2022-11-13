@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:wedding_invitation/constant.dart';
+import 'package:wedding_invitation/personal_information_page.dart';
 import 'package:wedding_invitation/save_the_date_page.dart';
 
 void main() {
@@ -51,6 +52,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 return const SaveTheDatePage(
                   landscapeImagePath: landscapeImagePath,
                   portraitImagePath: portraitImagePath,
+                );
+              }
+            case 1:
+              {
+                return const PersonalInformationPage(
+                  isReversedOrder: false,
+                  patronName: 'Giuse',
+                  fullname: 'Lại Hoàng Nhật',
+                  familyOrder: 'Trưởng nam',
+                  verticalImage: landscapeImagePath,
+                  horizontalImage: portraitImagePath,
+                );
+              }
+            case 2:
+              {
+                return const PersonalInformationPage(
+                  isReversedOrder: true,
+                  patronName: 'Matta',
+                  fullname: 'Hồ Thị Lan Oanh',
+                  familyOrder: 'Út nữ',
+                  verticalImage: landscapeImagePath,
+                  horizontalImage: portraitImagePath,
                 );
               }
             default:
