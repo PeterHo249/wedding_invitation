@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         scrollDirection: Axis.vertical,
         loop: false,
+        curve: Curves.fastOutSlowIn,
       ),
     );
   }
