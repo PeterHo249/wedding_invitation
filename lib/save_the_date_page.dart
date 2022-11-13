@@ -70,12 +70,12 @@ class LandingText extends StatelessWidget {
 
     var widgets = [
       Expanded(
-        flex: 3,
+        flex: 2,
         child: Align(
           alignment: FractionalOffset.bottomCenter,
           child: Text(
             isVerticalScreen(context)
-                ? 'Hoàng Nhật\n& Lan Oanh'
+                ? 'Hoàng Nhật\n&\nLan Oanh'
                 : 'Hoàng Nhật & Lan Oanh',
             style: TextStyle(
               fontFamily: 'DancingScript',
@@ -83,7 +83,6 @@ class LandingText extends StatelessWidget {
               fontSize: primaryFontSize,
               color: Colors.white,
             ),
-            maxLines: 2,
             textAlign: TextAlign.center,
           ),
         ),
