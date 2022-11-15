@@ -30,7 +30,7 @@ class EndingPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                'I promise to be faithful to you\nin good times and in bad\nin sickness and in health\nto love you and to honor you\nall the days of my life!',
+                'I take you to be my wife.\n\nI promise to be true to you\nin good times and in bad,\nin sickness and in health.\n\nI will love you and honor you\nall the days of my life!',
                 style: TextStyle(
                   fontFamily: 'DancingScript',
                   color: Colors.white,
