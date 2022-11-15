@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:wedding_invitation/utils.dart';
 
 class OverlayImage extends StatelessWidget {
-  const OverlayImage({
-    Key? key,
-    required this.verticalImagePath,
-    required this.horizontalImagePath,
-  }) : super(key: key);
+  const OverlayImage(
+      {Key? key,
+      required this.verticalImagePath,
+      required this.horizontalImagePath,
+      required this.opacity})
+      : super(key: key);
 
+  final double opacity;
   final String verticalImagePath;
   final String horizontalImagePath;
 
@@ -18,7 +20,7 @@ class OverlayImage extends StatelessWidget {
         isVerticalScreen(context) ? verticalImagePath : horizontalImagePath,
       ),
       fit: BoxFit.cover,
-      color: Colors.grey.withOpacity(0.95),
+      color: Colors.grey.withOpacity(opacity),
       colorBlendMode: BlendMode.modulate,
     );
   }

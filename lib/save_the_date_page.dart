@@ -19,6 +19,7 @@ class SaveTheDatePage extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         OverlayImage(
+          opacity: 1,
           verticalImagePath: horizontalImagePath,
           horizontalImagePath: verticalImagePath,
         ),

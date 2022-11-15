@@ -12,13 +12,14 @@ class EndingPage extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         const OverlayImage(
+          opacity: 0.95,
           verticalImagePath: endingVerticalPath,
           horizontalImagePath: endingHorizontalPath,
         ),
         Center(
           child: Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
               border: Border.symmetric(
                 horizontal: BorderSide(
                   width: 2,
