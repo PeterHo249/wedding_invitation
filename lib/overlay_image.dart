@@ -4,20 +4,20 @@ import 'package:wedding_invitation/utils.dart';
 class OverlayImage extends StatelessWidget {
   const OverlayImage({
     Key? key,
-    required this.portraitImagePath,
-    required this.landscapeImagePath,
+    required this.verticalImagePath,
+    required this.horizontalImagePath,
   }) : super(key: key);
 
-  final String portraitImagePath;
-  final String landscapeImagePath;
+  final String verticalImagePath;
+  final String horizontalImagePath;
 
   @override
   Widget build(BuildContext context) {
     return Image(
       image: AssetImage(
-        isVerticalScreen(context) ? portraitImagePath : landscapeImagePath,
+        isVerticalScreen(context) ? verticalImagePath : horizontalImagePath,
       ),
-      fit: BoxFit.fill,
+      fit: BoxFit.cover,
       color: Colors.grey.withOpacity(0.95),
       colorBlendMode: BlendMode.modulate,
     );

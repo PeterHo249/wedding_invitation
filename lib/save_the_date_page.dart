@@ -4,13 +4,13 @@ import 'package:wedding_invitation/utils.dart';
 import 'overlay_image.dart';
 
 class SaveTheDatePage extends StatelessWidget {
-  final String portraitImagePath;
-  final String landscapeImagePath;
+  final String horizontalImagePath;
+  final String verticalImagePath;
 
   const SaveTheDatePage({
     Key? key,
-    required this.landscapeImagePath,
-    required this.portraitImagePath,
+    required this.verticalImagePath,
+    required this.horizontalImagePath,
   }) : super(key: key);
 
   @override
@@ -19,8 +19,8 @@ class SaveTheDatePage extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         OverlayImage(
-          portraitImagePath: portraitImagePath,
-          landscapeImagePath: landscapeImagePath,
+          verticalImagePath: horizontalImagePath,
+          horizontalImagePath: verticalImagePath,
         ),
         const LandingText(),
       ],

@@ -28,13 +28,16 @@ class CeremonyPage extends StatelessWidget {
   }
 
   List<Widget> buildInformation(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
     var widgets = [
       SizedBox(
-        height: 100.0,
+        height: screenHeight * 0.25,
         child: Image.asset(
-          landscapeImagePath,
-          fit: BoxFit.fitWidth,
-          width: MediaQuery.of(context).size.width - getScale(context, 20) * 2,
+          isVerticalScreen(context) ? eventVerticalPath : eventHorizontalPath,
+          fit: BoxFit.cover,
+          width: screenWidth - getScale(context, 20) * 2,
         ),
       ),
       const Expanded(
@@ -50,9 +53,9 @@ class CeremonyPage extends StatelessWidget {
     var groomParty = const Expanded(
       child: EventInformation(
         event: 'Tân Hôn',
-        place: 'Gia Tân, Gia Kiệm, Thống Nhất, Đồng Nai',
+        place: '63/2c Đông Bắc, Gia Kiệm, Thống Nhất, Đồng Nai',
         time: 'Chúa nhật, 08/01/2023, 11:00 AM',
-        url: 'https://goo.gl/maps/AiZxjpdK15Vh8vxK7',
+        url: 'https://goo.gl/maps/qBaBNZ9fF1QNimX77',
       ),
     );
 

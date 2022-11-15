@@ -23,20 +23,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/img/landscape.jpg
-    - assets/img/portrait.jpg
+    - assets/img/
   fonts:
     - family: DancingScript
       fonts:
         - asset: assets/google_fonts/DancingScript-Bold.ttf
-        - asset: assets/google_fonts/DancingScript-Medium.ttf
         - asset: assets/google_fonts/DancingScript-Regular.ttf
-        - asset: assets/google_fonts/DancingScript-SemiBold.ttf
     - family: Yanone
       fonts:
-        - asset: assets/google_fonts/YanoneKaffeesatz-Bold.ttf
-        - asset: assets/google_fonts/YanoneKaffeesatz-ExtraLight.ttf
-        - asset: assets/google_fonts/YanoneKaffeesatz-Light.ttf
-        - asset: assets/google_fonts/YanoneKaffeesatz-Medium.ttf
         - asset: assets/google_fonts/YanoneKaffeesatz-Regular.ttf
-        - asset: assets/google_fonts/YanoneKaffeesatz-SemiBold.ttf

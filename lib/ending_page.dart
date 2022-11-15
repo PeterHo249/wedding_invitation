@@ -12,8 +12,8 @@ class EndingPage extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         const OverlayImage(
-          portraitImagePath: portraitImagePath,
-          landscapeImagePath: landscapeImagePath,
+          verticalImagePath: endingVerticalPath,
+          horizontalImagePath: endingHorizontalPath,
         ),
         Center(
           child: Container(

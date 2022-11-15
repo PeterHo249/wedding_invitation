@@ -52,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
             case 0:
               {
                 return const SaveTheDatePage(
-                  landscapeImagePath: landscapeImagePath,
-                  portraitImagePath: portraitImagePath,
+                  verticalImagePath: landingHorizontalPath,
+                  horizontalImagePath: landingVerticalPath,
                 );
               }
             case 1:
@@ -62,9 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   isReversedOrder: false,
                   patronName: 'Giuse',
                   fullname: 'Lại Hoàng Nhật',
-                  familyOrder: 'Trưởng nam',
-                  verticalImage: landscapeImagePath,
-                  horizontalImage: portraitImagePath,
+                  familyOrder: 'Quý nam',
+                  verticalImage: groomVerticalPath,
+                  horizontalImage: groomHorizontalPath,
                 );
               }
             case 2:
@@ -73,9 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   isReversedOrder: true,
                   patronName: 'Matta',
                   fullname: 'Hồ Thị Lan Oanh',
-                  familyOrder: 'Út nữ',
-                  verticalImage: landscapeImagePath,
-                  horizontalImage: portraitImagePath,
+                  familyOrder: 'Quý nữ',
+                  verticalImage: brideVerticalPath,
+                  horizontalImage: brideHorizontalPath,
                 );
               }
             case 3:

@@ -68,10 +68,17 @@ class PersonalInformationPage extends StatelessWidget {
       }
     }
 
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
     var widgets = [
-      Image.asset(
-        isVertical ? verticalImage : horizontalImage,
-        fit: isVertical ? BoxFit.fitWidth : BoxFit.fitHeight,
+      Container(
+        width: isVertical ? screenWidth : screenWidth * 0.4,
+        height: isVertical ? screenHeight * 0.3 : screenHeight,
+        child: Image.asset(
+          isVertical ? horizontalImage : verticalImage,
+          fit: BoxFit.cover,
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(getScale(context, 30)),
