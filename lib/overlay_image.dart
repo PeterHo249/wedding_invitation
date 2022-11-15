@@ -20,8 +20,6 @@ class OverlayImage extends StatelessWidget {
         isVerticalScreen(context) ? verticalImagePath : horizontalImagePath,
       ),
       fit: BoxFit.cover,
-      color: Colors.grey.withOpacity(opacity),
-      colorBlendMode: BlendMode.modulate,
     );
   }
 }

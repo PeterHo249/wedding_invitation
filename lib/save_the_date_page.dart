@@ -36,11 +36,14 @@ class LandingText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: buildTextColumn(context),
+    return Container(
+      decoration: BoxDecoration(color: Colors.black.withAlpha(150)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: buildTextColumn(context),
+      ),
     );
   }
 
