@@ -20,7 +20,7 @@ class GalleryPage extends StatelessWidget {
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -32,19 +32,24 @@ class GalleryPage extends StatelessWidget {
   }
 
   Widget buildImageGallery(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: StaggeredGrid.count(
-        crossAxisCount: isVerticalScreen(context) ? 2 : 4,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        children: buildImageTiles(),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: StaggeredGrid.count(
+          crossAxisCount: isVerticalScreen(context) ? 2 : 4,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          children: buildImageTiles(context),
+        ),
       ),
     );
   }
 
-  List<Widget> buildImageTiles() {
+  List<Widget> buildImageTiles(BuildContext context) {
     List<Widget> tiles = [];
+
+    var imageFiles =
+        isVerticalScreen(context) ? verticalImageFiles : horizontalImageFiles;
 
     for (var imageFile in imageFiles) {
       tiles.add(
@@ -59,9 +64,10 @@ class GalleryPage extends StatelessWidget {
   }
 
   Container buildTitle(BuildContext context) {
+    var isLargeHeight = MediaQuery.of(context).size.height >= 500;
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: getScale(context, 10),
+        vertical: getScale(context, 2),
         horizontal: getScale(context, 100),
       ),
       decoration: BoxDecoration(
@@ -76,7 +82,7 @@ class GalleryPage extends StatelessWidget {
         style: TextStyle(
           fontFamily: 'DancingScript',
           color: Theme.of(context).colorScheme.primary,
-          fontSize: getScale(context, 60),
+          fontSize: isLargeHeight ? 60 : 20,
         ),
       ),
     );
