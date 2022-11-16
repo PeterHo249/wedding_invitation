@@ -31,11 +31,11 @@ class CeremonyPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     
-    var isSmallHeight = screenHeight >= 500;
+    var isLargeHeight = screenHeight >= 500;
 
     var widgets = [
       SizedBox(
-        height: isSmallHeight ? screenHeight * 0.25 : screenHeight * 0.18,
+        height: isLargeHeight ? screenHeight * 0.25 : screenHeight * 0.18,
         child: Image.asset(
           isVerticalScreen(context) ? eventVerticalPath : eventHorizontalPath,
           fit: BoxFit.cover,
@@ -133,7 +133,7 @@ class EventInformation extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-              bottom: getScale(context, MediaQuery.of(context).size.height >= 500 ? 15 : 5),
+              bottom: getScale(context, MediaQuery.of(context).size.height >= 500 ? 15 : 2),
             ),
             child: Divider(
               color: Theme.of(context).colorScheme.primary,
@@ -167,7 +167,7 @@ class EventInformation extends StatelessWidget {
   Widget buildTextWithIcon(BuildContext context, IconData icon, String text) {
     return Padding(
       padding: EdgeInsets.all(
-        getScale(context, 8),
+        getScale(context, MediaQuery.of(context).size.height >= 500 ? 8 : 2),
       ),
       child: RichText(
         textAlign: TextAlign.center,
