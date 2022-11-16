@@ -19,15 +19,7 @@ class GalleryPage extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          buildTitle(context),
-          buildImageGallery(context),
-        ],
-      ),
+      child: buildImageGallery(context),
     );
   }
 
@@ -61,30 +53,5 @@ class GalleryPage extends StatelessWidget {
     }
 
     return tiles;
-  }
-
-  Container buildTitle(BuildContext context) {
-    var isLargeHeight = MediaQuery.of(context).size.height >= 500;
-    return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: getScale(context, 2),
-        horizontal: getScale(context, 100),
-      ),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-      ),
-      child: Text(
-        'Hình Ảnh',
-        style: TextStyle(
-          fontFamily: 'DancingScript',
-          color: Theme.of(context).colorScheme.primary,
-          fontSize: isLargeHeight ? 60 : 20,
-        ),
-      ),
-    );
   }
 }

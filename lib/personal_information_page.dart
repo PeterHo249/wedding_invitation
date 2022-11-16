@@ -132,7 +132,7 @@ class PersonalInformationPage extends StatelessWidget {
         child: Text(
           familyOrder,
           style: TextStyle(
-            fontSize: getScale(context, 20),
+            fontSize: getScale(context, 30),
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),
