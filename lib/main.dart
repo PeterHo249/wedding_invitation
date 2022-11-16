@@ -1,6 +1,6 @@
+import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:wedding_invitation/ceremony_page.dart';
 import 'package:wedding_invitation/constant.dart';
 import 'package:wedding_invitation/ending_page.dart';
@@ -25,18 +25,23 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xff619086),
         ),
       ),
-      home: const MyHomePage(
-        title: 'Flutter Demo Home Page',
-      ),
+      home: const MyHomePage(),
       debugShowCheckedModeBanner: false,
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.trackpad,
+          PointerDeviceKind.unknown,
+        },
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
