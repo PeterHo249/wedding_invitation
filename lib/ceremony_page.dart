@@ -30,7 +30,7 @@ class CeremonyPage extends StatelessWidget {
   List<Widget> buildInformation(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    
+
     var isLargeHeight = screenHeight >= 500;
 
     var widgets = [
@@ -55,7 +55,7 @@ class CeremonyPage extends StatelessWidget {
     var groomParty = const Expanded(
       child: EventInformation(
         event: 'Tân Hôn',
-        place: '63/2c Đông Bắc, Gia Kiệm, Thống Nhất, Đồng Nai',
+        place: '63/2C Đông Bắc, Gia Kiệm, Thống Nhất, Đồng Nai',
         time: 'Chúa nhật, 08/01/2023, 11:00 AM',
         url: 'https://goo.gl/maps/qBaBNZ9fF1QNimX77',
       ),
@@ -113,55 +113,58 @@ class EventInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, boxConstraints) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(
-              getScale(context, 8),
-            ),
-            child: Text(
-              event,
-              style: TextStyle(
-                fontFamily: 'DancingScript',
-                fontSize: getScale(context, 40),
-                color: Theme.of(context).colorScheme.primary,
+    return LayoutBuilder(
+      builder: (context, boxConstraints) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(
+                getScale(context, 8),
+              ),
+              child: Text(
+                event,
+                style: TextStyle(
+                  fontFamily: 'DancingScript',
+                  fontSize: getScale(context, 40),
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: getScale(context, MediaQuery.of(context).size.height >= 500 ? 15 : 2),
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: getScale(context,
+                    MediaQuery.of(context).size.height >= 500 ? 15 : 2),
+              ),
+              child: Divider(
+                color: Theme.of(context).colorScheme.primary,
+                indent: boxConstraints.maxWidth * 0.2,
+                endIndent: boxConstraints.maxWidth * 0.2,
+              ),
             ),
-            child: Divider(
-              color: Theme.of(context).colorScheme.primary,
-              indent: boxConstraints.maxWidth * 0.2,
-              endIndent: boxConstraints.maxWidth * 0.2,
-            ),
-          ),
-          buildTextWithIcon(
-            context,
-            Icons.watch_later,
-            time,
-          ),
-          InkWell(
-            onTap: () async {
-              await launchUrl(
-                Uri.parse(url),
-                webOnlyWindowName: '_blank',
-              );
-            },
-            child: buildTextWithIcon(
+            buildTextWithIcon(
               context,
-              Icons.pin_drop,
-              place,
+              Icons.watch_later,
+              time,
             ),
-          ),
-        ],
-      );
-    });
+            InkWell(
+              onTap: () async {
+                await launchUrl(
+                  Uri.parse(url),
+                  webOnlyWindowName: '_blank',
+                );
+              },
+              child: buildTextWithIcon(
+                context,
+                Icons.pin_drop,
+                place,
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Widget buildTextWithIcon(BuildContext context, IconData icon, String text) {
