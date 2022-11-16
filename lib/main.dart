@@ -7,6 +7,8 @@ import 'package:wedding_invitation/ending_page.dart';
 import 'package:wedding_invitation/personal_information_page.dart';
 import 'package:wedding_invitation/save_the_date_page.dart';
 
+import 'gallery_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -89,6 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
               }
             case 4:
               {
+                return const GalleryPage();
+              }
+            case 5:
+              {
                 return const EndingPage();
               }
             default:
@@ -103,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               );
           }
         },
-        itemCount: 5,
+        itemCount: 6,
         pagination: SwiperPagination(
           builder: DotSwiperPaginationBuilder(
             activeColor: Theme.of(context).colorScheme.primary,

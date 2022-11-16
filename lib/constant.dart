@@ -12,3 +12,16 @@ const String endingHorizontalPath = 'assets/img/ending_horizontal.JPG';
 
 const String eventVerticalPath = 'assets/img/event_vertical.JPG';
 const String eventHorizontalPath = 'assets/img/event_horizontal.JPG';
+
+const String galleryPath = 'assets/img/event_horizontal.JPG';
+
+const List<String> imageFiles = [
+  landingHorizontalPath,
+  landingVerticalPath,
+  brideHorizontalPath,
+  brideVerticalPath,
+  groomVerticalPath,
+  groomHorizontalPath,
+  endingHorizontalPath,
+  endingVerticalPath
+];

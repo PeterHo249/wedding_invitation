@@ -55,7 +55,7 @@ class CeremonyPage extends StatelessWidget {
     var groomParty = const Expanded(
       child: EventInformation(
         event: 'Tân Hôn',
-        place: '63/2c Đông Bắc, Gia Kiệm, Thống Nhất, Đồng Nai',
+        place: '63/2C Đông Bắc, Gia Kiệm, Thống Nhất, Đồng Nai',
         time: 'Chúa nhật, 08/01/2023, 11:00 AM',
         url: 'https://goo.gl/maps/qBaBNZ9fF1QNimX77',
       ),
