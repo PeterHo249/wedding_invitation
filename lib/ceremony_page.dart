@@ -33,7 +33,7 @@ class CeremonyPage extends StatelessWidget {
 
     var widgets = [
       SizedBox(
-        height: screenHeight * 0.25,
+        height: screenHeight * screenHeight >= 400 ? 0.25 : 0.18,
         child: Image.asset(
           isVerticalScreen(context) ? eventVerticalPath : eventHorizontalPath,
           fit: BoxFit.cover,
@@ -118,7 +118,7 @@ class EventInformation extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(
-              getScale(context, 10),
+              getScale(context, 8),
             ),
             child: Text(
               event,
@@ -131,7 +131,7 @@ class EventInformation extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-              bottom: getScale(context, 15),
+              bottom: getScale(context, MediaQuery.of(context).size.height >= 400 ? 15 : 5),
             ),
             child: Divider(
               color: Theme.of(context).colorScheme.primary,
