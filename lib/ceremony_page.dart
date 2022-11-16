@@ -167,7 +167,7 @@ class EventInformation extends StatelessWidget {
   Widget buildTextWithIcon(BuildContext context, IconData icon, String text) {
     return Padding(
       padding: EdgeInsets.all(
-        getScale(context, MediaQuery.of(context).size.height >= 500 ? 8 : 2),
+        getScale(context, MediaQuery.of(context).size.height >= 500 ? 8 : 0),
       ),
       child: RichText(
         textAlign: TextAlign.center,
